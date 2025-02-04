@@ -1,0 +1,27 @@
+maven nedir? maven uygulamamızı geliştiriken ihtiyacımız olan harici kütüphanelerin bağımlılıklarını kullanarak
+otomatik olarak kolay bir şekilde kütüphanelerimiz import etmemizi sağlayan  bir inşaat sistemidir.maven ın avantajı
+nelerdir.hibernate dersi için iki tane kütüphaneye ihtiyacımız var birincisi hibernat ın core kütüphanesi temel kütüphanesi
+çünkü hibernate jdk içerisin yer almayan ayrı bir araç.ikincisi hibernate de jdbc yi kullanıyor ama jdbc içi ayrı
+bir kütüphaneye gerek yok çünkü jdbc zaten jdk içerisinde var.fakat jdbc farklı farklı data base management sistemler
+ile çalışabilmemisi sağlıyor postgresql , mysql gibi.. burada hangi hangi data base management ile çalışıcaksa
+bu DMS connecter ına ihtiyacımız vardı.bu sebeler jdbc dersind e  postgre sql kütüphanesini import etmiştik.maven dan
+önce bu kütüphaneleri yüklüyebilmek için jar uzantılı dosyaları var bu kütüphanelerin.zip dosyalrı gibi düşünebiliriz
+arşivlenmiş java dosyası gibi düşünebiliriz.jar dosyalrı içerisinde ziplenmiş olarak bu kütüphaneler yer alır.normalde
+mavendan önce bu kütüphaneleri uygulamamızı dahil edebilmek için internete gidip bu jar dosyalrını bulmamız gerekiyordu
+bunu locale indirip yani bilgisayara daha sonra uygulama içerisine yüklemem gerekeiyordu.bunu manule olarka zahametinde
+ziyade sürüm değişrimek istediğimde manual olarak tekrar gücel versiyonun jar dosyasını inderecez uygulamadan önceki
+versiyonu kaldırıp yeni versiyonu yüklememiz gerekecekti.ve bunu her bir kütüphane için tekrar etmemiz gerekecekti.
+ikinci bazı kütüphanelr  aatıyorum biz x kütüphanesin ihtiyac duyuyoruz amam x kütüphansi a b c kütüphaneleri ile
+beraber çalışıyor olabilir.bu durumda bu işlemei manul olarak yaparsak tek tek tüm kütüpkeri indirip uygulamamya dahil
+etmemiz gerekecek. ve hepsinin birbiri ile uyumlu versiyonlarını bulup bu şekilde indirmemeiz lazımdı.peki maven ne
+yapıyor mesela biz x kütüpanesini kullanmak istiyoruz bu x kütüphanesi a b c kütüphaneleri ile çalışmak istiyorsak
+biz maven ile x kütüphanesini bağımlılığını yazdığımız anda  paket olarak içerisind a b c de geliyor.maven bizim yerimize
+a b c kütüphanelini de bizim yazdığımız versiyon ile uyumlu olan versiyonlarını indiriyor.peki maven bu kütüphanerli nere
+de tutuyor nasıl yüklüyor.önce eğer bir kütüphaneyi ilk defa kullanıyorsak.maven şunu yapıyor bağımlılığını bellirtmiş o
+oldupumuz kütüphaneyi önce uzak repoda arıyor. uzak repo nedir maven centrel repository dene online olark girdipğimiz
+bir site.maven remote da kütüphanelerin jar dosyalrını burda depolar.eğer ilk defa kullanıyorsa bu kütüpnayi maven
+uzak repoda arayıp jar dosyalarını indirip locala yani uygulamamıza kurulumunu gerçekleştirir.eğer bizim kütüphanemiz
+daha önce kullanılmışsa maven ın local bir reposu var. bir kütüphanemizin bağımlılığını eklediğimz zaman aslında öncelikle
+maven local repoyu kontrol eder. local repoda hibernate core var mı varsa  maven hiç internete gitmiyor.hiç uzak repoya
+gitmiyor yani.direkt kütüphaneyi lokal repodan getirip uygulamay dahil ediyor.eğer local repoda bulamazsa o zmn uzak repoya
+yani maven centrel repoya gitmiş oluyr.

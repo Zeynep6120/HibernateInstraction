@@ -1,0 +1,24 @@
+bir bağımlılık tanımlanması için  temelde 3 tane etiketimiz var
+ <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+         <groupId>: bu kütüphane hangi firma tarafından gerçekleştirirlmiş onu gösterir. genellikle firmanın domainin
+         tersten yazılmışıdır
+          <artifactId>: bu firmanınn ya da  kütüphanenin geliştirmiş oldupu kütüphanenin ismini belirtir.bu firmanın
+          gerçekleştirdiği başka bir proje de olabilir
+           <version>: bu projenin yani bu kütüphanenin versiyonun belirtir
+  bu 3 tane etiket sabit yani default olan etiketlerdir.yani biz bir kütüphane ile çalışırken versiyonu belirtmek zorundayiz
+  yada biz bir versiyonu değişken olarak oluşturursak bunu çağımak için dolar ve süslü parnetezleri kullanıyoruz.
+
+  ---bir uygulmayı geliştirirken de ugyulamamız ile ilgili özellikleri ayarlamaları yapıyoruz.yani uygulamamaızın
+  yapılandırılma ayarlamalarını yapıyoruz.her uygulamamının öncellikle muhakkak yapılandırma ayarlarını yapıyoruz.
+  ve hibernate  bize yapılandırma ayarlamaları içi xml uzantılı dosya ile geliştirme yapmamıza izin veriyor.hibernate
+  yapılandırma için xml uzantılı dosyaları kullanıyor.hibernate jdbc ile çalışıyor ama bizden de ona bazı bilgileri
+  vermemiz istiyor öncelikle jdbc ile ilgili yani data base ile ilgili bilgileri data base a vermemiz gerekiyor,url,kul
+ kullanıcı adı, password gibi bilgiler.2 hibernatebir orm bizim yerimize neslerin eşleştre işlemini otomatik olarka
+ yapacak.hiber nate bizim yerimize stutdent nesnesi ile data base deki student tablosunu ilişkiilendirecek.ama bizim
+ hibernate e bazı bilgiler vermemiz gerekiyor bu bilgilere  göre şu işlemleri yap demem gerekiyor. işte bu bilgileri
+ verme işlemine configurasyon ya da yapılandırma diyoruz.işte hibermate configurasyon işlemleri için xml uzantılı
+ dosyalrı kullanıyor.
